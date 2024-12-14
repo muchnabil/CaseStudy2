@@ -8,15 +8,49 @@ public class casestudy2 {
     
         System.out.println();
         sc.nextLine();
-    
         System.out.print("Enter Customer's Name : ");
         String name = sc.nextLine();
-    
         System.out.print("Enter Table Number : ");
         int tableNumber = sc.nextInt();
     
         orders[orderCount][0] = name;
         orders[orderCount][1] = String.valueOf(tableNumber);
+
+        int[] quantities = new int[4];
+        displayMenu();
+
+    int cafeMenu;
+        do {
+            System.out.print("Choose Menu (Enter Menu Number or 0 to Finish) : ");
+            cafeMenu = sc.nextInt();
+            
+            if (cafeMenu == 0) {
+                break;
+            }
+            if (cafeMenu >= 1 && cafeMenu <= 4) {
+                System.out.print("Enter The Number of Items For " + menuNames[cafeMenu - 1] + " : ");
+                int quantity = sc.nextInt();
+                System.out.println();
+                quantities[cafeMenu - 1] += quantity;
+                
+            } else {
+                System.out.println("Menu not valid, Please try again.");
+            }
+
+        } while (cafeMenu != 0);
+
+        for (int i = 0; i < menuNames.length; i++) {
+            orders[orderCount][i + 2] = String.valueOf(quantities[i]);
+        }
+        int totalPrice = 0;
+        for (int i = 0; i < menuNames.length; i++) {
+            totalPrice += quantities[i] * priceMenu[i];
+        }
+
+        orders[orderCount][6] = String.valueOf(totalPrice);
+
+        System.out.println("Order Added Successfully.");
+        System.out.println("Total Order Price : Rp " + totalPrice);
     }
 
     public static void main(String[] args) {
