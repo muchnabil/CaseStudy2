@@ -1,6 +1,15 @@
 import java.util.Scanner;
 
 public class casestudy2 {
+
+    public static void displayMenu() {
+        System.out.println("=== MENU KAFE ===");
+        System.out.println("1. Black COffee - Rp 15000");
+        System.out.println("2. Latte - Rp 22000");
+        System.out.println("3. Pulled Tea- Rp 12000");
+        System.out.println("4. Fried Noodles - Rp 18000");
+    }
+    
     public static void takeOrder(Scanner sc, String[][] orders, int orderCount) {
     
         int[] priceMenu = {15000, 22000, 12000, 18000};
@@ -50,6 +59,32 @@ public class casestudy2 {
 
         System.out.println("Order Added Successfully.");
         System.out.println("Total Order Price : Rp " + totalPrice);
+    }
+
+    public static void showOrders(String[][] orders, int orderCount) {
+        System.out.println("=== ORDER LIST ===");
+        for (int i = 0; i < orderCount; i++) {
+            System.out.println("Name : " + orders[i][0]);
+            System.out.println("Table Number : " + orders[i][1]);
+            System.out.println("Order :");
+            
+            int totalBlackCoffee = Integer.parseInt(orders[i][2]);
+            int totalLatte = Integer.parseInt(orders[i][3]);
+            int totalPulledTea = Integer.parseInt(orders[i][4]);
+            int totalFriedNoodle = Integer.parseInt(orders[i][5]);
+
+            if (totalBlackCoffee > 0) 
+                System.out.println(" - Black Coffee x" + totalBlackCoffee + " (Rp " + (totalBlackCoffee * 15000) + ")");
+            if (totalLatte > 0) 
+                System.out.println(" - Latte x" + totalLatte + " (Rp " + (totalLatte * 22000) + ")");
+            if (totalPulledTea > 0) 
+                System.out.println(" - Pulled Tea x" + totalPulledTea + " (Rp " + (totalPulledTea * 12000) + ")");
+            if (totalFriedNoodle > 0) 
+                System.out.println(" - Fried Noodles x" + totalFriedNoodle + " (Rp " + (totalFriedNoodle * 18000) + ")");
+            
+            System.out.println("Total Order Price : Rp " + orders[i][6]);
+            System.out.println();
+        }
     }
 
     public static void main(String[] args) {
