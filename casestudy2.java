@@ -23,7 +23,6 @@ public class casestudy2 {
         do {
             System.out.print("Choose Menu (Enter Menu Number or 0 to Finish) : ");
             cafeMenu = sc.nextInt();
-            
             if (cafeMenu == 0) {
                 break;
             }
