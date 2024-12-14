@@ -47,7 +47,6 @@ public class casestudy2 {
         }
 
         orders[orderCount][6] = String.valueOf(totalPrice);
-
         System.out.println("Order Added Successfully.");
         System.out.println("Total Order Price : Rp " + totalPrice);
     }
